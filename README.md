@@ -20,7 +20,7 @@ UI stuff:
 - [ ] Display progress bar (well playtime of the song) :)
 - [ ] Display cool bars going up and down (Feature?)
 - [ ] Display sound wave (Feature?)
-- [ ] Buttons (°v°)
+- [ ] Buttons 🤔
 
 Will probably add some stuff to that list soon. (^_^)
 
