@@ -1,6 +1,7 @@
 # muzplay
 
 ## TODO
+
 This is just what I think I must do to make my own music player for PC...
 And yea I will use Python, cuz why not. That is my own music player. I am just having fun.
 
@@ -23,4 +24,3 @@ UI stuff:
 - [ ] Buttons 🤔
 
 Will probably add some stuff to that list soon. (^_^)
-
