@@ -7,9 +7,9 @@ And yea I will use Python, cuz why not. That is my own music player. I am just h
 
 Pre-UI stuff:
 
-- [ ] Actually play music file (pause/resume is here too)
+- [x] Actually play music file (pause/resume is here too)
 - [ ] Play multiple files in alphabetical order
-- [ ] Skip song or go to previous
+- [x] Skip song or go to previous
 - [ ] Get time where you left the song
 - [ ] Replay from where you stopped
 - [ ] Music time position ??? (Probably bad English) :P
