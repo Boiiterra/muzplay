@@ -1,43 +1,18 @@
-from pygame import mixer
+from tkinter import filedialog, Tk, Button
+from platform import system
 
-melody = "path here" # !!! WONT WORK WITHOUT PATH TO MUSIC FILE HERE
-melody1 = "path here" # !!! WONT WORK WITHOUT PATH TO MUSIC FILE HERE
+base = "~"
 
-def pause():
-    mixer.music.pause()
 
-def unpause():
-    mixer.music.unpause()
+class MusicPlayer(Tk):
+    def __init__(self, *args, **kwargs):
+        Tk.__init__(self, *args, **kwargs)
 
-def stop():
-    mixer.music.stop()
+        self.title("Title")
+        # self.iconbitmap("path to icon") # Need to draw icon
 
-def skip_to(to) -> int:
-    mixer.music.pause()
-    prev_pos = mixer.music.get_pos()
-    mixer.music.stop()
-    mixer.music.load(to)
-    mixer.music.play()
-    return prev_pos
+        add_file = Button(self, text="Add file")
 
-def go_back(to):
-    mixer.music.pause()
-    prev_pos = mixer.music.get_pos()
-    mixer.music.stop()
-    mixer.music.load(to)
-    mixer.music.play()
-    return prev_pos
-
-mixer.pre_init(44100, -16, 1, 512)
-mixer.init()
-
-mixer.music.load(melody)
-mixer.music.set_volume(0.01)
-mixer.music.play()
-while mixer.music.get_busy():  # wait for music to finish playing
-    inp = input()
-
-    if inp == "next":
-        skip_to(melody1)
-    elif inp == "back":
-        go_back(melody)
+MusicPlayer().mainloop()
+# files = filedialog.askopenfile(initialdir="~", title="Selecting file", filetypes=[("Music files", "*.mp3"), ("Any files", "*.*")])
+# print(files.name)
