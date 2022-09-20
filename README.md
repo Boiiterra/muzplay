@@ -15,6 +15,10 @@ Pre-UI stuff:
 - [ ] Music time position ??? (Probably bad English) :P
 - [ ] Total playtime of all files
 
+Middle stuff (Dunno how to name this):
+
+- [ ] Get files/folder to play
+
 UI stuff:
 
 - [ ] Display all files that are going to be played (not at the same time of course)
