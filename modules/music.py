@@ -1,7 +1,7 @@
 from pygame import mixer
 
 
-def play():
+def initialize():
     mixer.pre_init(44100, -16, 1, 512)
     mixer.init()
 
