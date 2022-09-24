@@ -1,7 +1,7 @@
 from tkinter import filedialog, Tk, Button
 from tkinter.messagebox import showinfo
-import fleep
-import os
+from os import listdir, path as o_path
+from fleep import get as f_get
 
 FILE_TYPES = [("Music files", "*.mp3")]
 
@@ -35,7 +35,7 @@ class MusicPlayer(Tk):
                     return
 
                 with open(get_prompt.name, "rb") as _file:
-                    info = fleep.get(_file.read(128))
+                    info = f_get(_file.read(128))
 
                 if info.extension[0] == "mp3" and info.type[0] == "audio":
                     files.append(get_prompt.name)
@@ -44,13 +44,13 @@ class MusicPlayer(Tk):
                 get_prompt = filedialog.askdirectory(initialdir="~", title="Selecting directory")
 
                 if get_prompt:
-                    fid = list(filter(lambda a: ".mp3" in a, os.listdir(get_prompt)))
+                    fid = list(filter(lambda a: ".mp3" in a, listdir(get_prompt)))
                     if fid:
                         for file in fid:
-                            file_path = os.path.join(get_prompt,file)
+                            file_path = o_path.join(get_prompt,file)
 
                             with open(file_path, "rb") as _file:
-                                info = fleep.get(_file.read(128))
+                                info = f_get(_file.read(128))
 
                             if info.extension[0] == "mp3" and info.type[0] == "audio":
                                 files.append(file_path)
@@ -65,7 +65,7 @@ class MusicPlayer(Tk):
                 if get_prompt:
                     for file in get_prompt:
                         with open(file.name, "rb") as _file:
-                            info = fleep.get(_file.read(128))
+                            info = f_get(_file.read(128))
 
                         if info.extension[0] == "mp3" and info.type[0] == "audio":
                             files.append(file.name)
