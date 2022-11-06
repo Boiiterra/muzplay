@@ -6,6 +6,11 @@ def initialize():
     mixer.init()
 
 
+def start(song):
+    mixer.music.load(song)
+    mixer.music.play()
+
+
 def pause():
     mixer.music.pause()
 
@@ -20,23 +25,26 @@ def stop():
 
 def skip_to(to) -> int:
     mixer.music.pause()
-    prev_pos = mixer.music.get_pos()
     mixer.music.stop()
     mixer.music.load(to)
     mixer.music.play()
-    return prev_pos
 
 
 def go_back(to):
     mixer.music.pause()
-    prev_pos = mixer.music.get_pos()
     mixer.music.stop()
     mixer.music.load(to)
     mixer.music.play()
-    return prev_pos
 
 
-def volume(set_to):
+def gpos():
+    return mixer.music.get_pos()
+
+def continue_(from_):
+    mixer.music.set_pos(from_)
+
+
+def set_volume(set_to):
     mixer.music.set_volume(set_to)
 
 
