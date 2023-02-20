@@ -17,7 +17,7 @@ Pre-UI stuff:
 
 Middle stuff (Dunno how to name this):
 
-- [ ] Get files/folder to play
+- [x] Get files/folder to play
 
 UI stuff:
 
