@@ -38,13 +38,31 @@ class MusicPlayer(Tk):
         self.current = ""
         vol = IntVar()
         vol.set(40)
-        playing = 0
+        self.playing = 0
 
         def start_playing():
             if files:
-                start(files[playing])
+                start(files[self.playing])
             else:
                 print("No files were chosen to play!")
+
+        def get_prev():
+            if files:
+                self.playing -= 1
+                if self.playing < 0:
+                    self.playing = len(files) - 1
+                go_back(files[self.playing])
+            else:
+                print("No files to work with")
+
+        def get_next():
+            if files:
+                self.playing += 1
+                if self.playing >= len(files):
+                    self.playing = 0
+                go_back(files[self.playing])
+            else:
+                print("No files to work with")
 
         set_volume(0.4)
 
@@ -59,8 +77,19 @@ class MusicPlayer(Tk):
         add_dir.grid(row=0, column=2, sticky="snew", padx=1)
         add_files = Button(add_c, font=FONT, text="files", command=lambda: add(False))
         add_files.grid(row=0, column=3, sticky="snew")
-        play = Button(self, text="Play", font=FONT, command=start_playing)
-        play.pack()
+
+        controls = Frame(self)
+        controls.pack()
+
+        prev = Button(controls, text="<-", font=FONT, command=get_prev)
+        prev.grid(row=0, column=0)
+
+        play = Button(controls, text="Play", font=FONT, command=start_playing)
+        play.grid(row=0, column=1)
+
+        next = Button(controls, text="->", font=FONT, command=get_next)
+        next.grid(row=0, column=2)
+
         song_info = Label(self, font=FONT)
         song_info.pack()
         volume = Scale(
