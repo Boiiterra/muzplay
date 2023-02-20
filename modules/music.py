@@ -40,6 +40,7 @@ def go_back(to):
 def gpos():
     return mixer.music.get_pos()
 
+
 def continue_(from_):
     mixer.music.set_pos(from_)
 
